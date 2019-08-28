@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <rpc/rpc.h>
 #include "tools.h"
-#include <windows.h>
+//#include <windows.h>
 
 // Interface gerada pelo RPCGen a partir da IDL (hw.x) especificada
 #include "hw.h"

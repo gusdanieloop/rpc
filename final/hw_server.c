@@ -6,6 +6,7 @@
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 int *func1_1_svc(struct params *parametros, struct svc_req *req) {
+    printf("chegando %s\nby:%s\n", parametros->conteudo, parametros->usuario);
     static int ret = 0;
     FILE *file_to_write;
     char *nome_do_arquivo = (char *) malloc(256*sizeof(char));
@@ -18,7 +19,8 @@ int *func1_1_svc(struct params *parametros, struct svc_req *req) {
     strcat(nome_do_arquivo, ".serv");
     file_to_write = fopen(nome_do_arquivo,"w");
     printf ("Escrevendo...\n");
-    writeline(*parametros->conteudo, file_to_write);
+    printf("%s\n", parametros->conteudo);
+    writeline(parametros->conteudo, file_to_write);
     printf ("Escrito!\n");
     fclose (file_to_write);
     return (&ret);

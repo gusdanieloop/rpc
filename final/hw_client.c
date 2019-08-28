@@ -17,6 +17,7 @@ int main (int argc, char *argv[]) {
 	// Parâmetros das funçcões
     struct params parametros;
     parametros.conteudo = (char *) malloc(256*sizeof(char));
+    parametros.usuario = (char *) malloc(256*sizeof(char));
     char *conteudo_arquivo = NULL;
 	
     // Retorno das funções
@@ -45,20 +46,24 @@ int main (int argc, char *argv[]) {
         exit(1);
     }
     conteudo_arquivo = readline(file_to_read); //uma linha só
+    //printf("eoq\n");
     fclose(file_to_read);
 	// Atribuições de valores para os parâmetros
-	strcpy (parametros.conteudo, conteudo_arquivo);
+    strcpy (parametros.conteudo, conteudo_arquivo);
     strcpy (parametros.usuario, argv[1]);
     parametros.contador = contador;
     contador+=1;
 
     // Chamadas das funções remotas
     printf ("Chamando funcao\n");
+    printf("so pra ter ctz...\n%s\nby:%s", parametros.conteudo, parametros.usuario);
 	ret_funcao = func1_1(&parametros, cl);
-    if (ret_funcao == NULL) {
+    if (ret_funcao != NULL) {
+            printf("nossa\n");
 	    clnt_perror(cl,argv[1]);
 	    exit(1);
 	}
+    printf("puts\n");
     printf ("Retorno funcao (%d)\n", *ret_funcao);
 
     //procurando se tem coisa nova no servidor

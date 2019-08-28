@@ -1,6 +1,6 @@
 struct params{
-    char    *conteudo;
-    char    *usuario;
+    char   *conteudo;
+    char   *usuario;
     int contador;
 };
 

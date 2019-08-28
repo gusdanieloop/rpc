@@ -23,3 +23,9 @@ int *func1_1_svc(struct params *parametros, struct svc_req *req) {
     flose (file_to_write);
     return (&ret);
 }
+
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+/*params *func2_1_svc(void *a, struct svc_req *req) {
+    struct params ret;
+    
+}*/

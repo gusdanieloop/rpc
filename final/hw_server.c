@@ -1,5 +1,5 @@
 #include <rpc/rpc.h>
-#include "tools.h"
+#include "tools.c"
 
 // Interface gerada pelo RPCGen a partir da IDL (hw.x) especificada
 #include "hw.h"

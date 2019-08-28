@@ -21,7 +21,7 @@ int main (int argc, char *argv[]) {
 	
     // Retorno das funções
     int   *ret_funcao = NULL;
-    struct params retorno;
+    //struct params retorno;
 
 
 	// Verificação dos parâmetros oriundos da console	

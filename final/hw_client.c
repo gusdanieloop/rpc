@@ -55,7 +55,6 @@ int main (int argc, char *argv[]) {
     contador+=1;
 
     // Chamadas das funções remotas
-    printf("%s")
     printf ("Chamando funcao\n");
     printf("so pra ter ctz...\n%s\nby:%s", parametros.conteudo, parametros.usuario);
 	ret_funcao = func1_1(&parametros, cl);
@@ -68,11 +67,10 @@ int main (int argc, char *argv[]) {
     printf ("Retorno funcao (%d)\n", *ret_funcao);
 
     //procurando se tem coisa nova no servidor
-    while(true){
+    while(1){
         sleep(10*1000); //10 segundos
-        retorno = func2_1(NULL, cl);
-        if (retorno != NULL) {
-            char *nome_do_arquivo = (char *) malloc(256*sizeof(char));
+        *retorno = func2_1(NULL, cl);
+            //char *nome_do_arquivo = (char *) malloc(256*sizeof(char));
             /*strcpy(nome_do_arquivo, "");
             strcat(nome_do_arquivo, argv[1]);
             char contador[12];
@@ -87,7 +85,6 @@ int main (int argc, char *argv[]) {
             for(int i = 0; i < retorno->quantidade; ++i){
                 printf("Cont: %d\nConteudo: %s",i, retorno->arquivo[i].conteudo);
             }
-        }
     }
 	return 0;
 }

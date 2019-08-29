@@ -1,12 +1,12 @@
-struct arquivos{
-    params arquivo[256];
-    int quantidade;
-};
-
 struct params{
     char   conteudo[256];
     char   usuario[256];
     int contador;
+};
+
+struct arquivos{
+    struct params arquivo[256];
+    int quantidade;
 };
 
 program PROG {

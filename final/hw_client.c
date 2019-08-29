@@ -16,8 +16,8 @@ int main (int argc, char *argv[]) {
 
 	// Parâmetros das funçcões
     struct params parametros;
-    parametros.conteudo = (char *) malloc(256*sizeof(char));
-    parametros.usuario = (char *) malloc(256*sizeof(char));
+   // parametros.conteudo = (char *) malloc(256*sizeof(char));
+   // parametros.usuario = (char *) malloc(256*sizeof(char));
     char *conteudo_arquivo = NULL;
 	
     // Retorno das funções

@@ -10,9 +10,12 @@ xdr_params (XDR *xdrs, params *objp)
 {
 	register int32_t *buf;
 
-	 if (!xdr_pointer (xdrs, (char **)&objp->conteudo, sizeof (char), (xdrproc_t) xdr_char))
+	int i;
+	 if (!xdr_vector (xdrs, (char *)objp->conteudo, 256,
+		sizeof (char), (xdrproc_t) xdr_char))
 		 return FALSE;
-	 if (!xdr_pointer (xdrs, (char **)&objp->usuario, sizeof (char), (xdrproc_t) xdr_char))
+	 if (!xdr_vector (xdrs, (char *)objp->usuario, 256,
+		sizeof (char), (xdrproc_t) xdr_char))
 		 return FALSE;
 	 if (!xdr_int (xdrs, &objp->contador))
 		 return FALSE;

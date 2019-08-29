@@ -86,7 +86,7 @@ int main (int argc, char *argv[]) {
             strcat(nome_do_arquivo, contador);
             file_to_write = fopen(nome_do_arquivo,"w");
             printf ("Escrevendo...\n");
-            writeline(retorno->conteudo, file_to_write);
+            writeline(retorno->arquivo[i].conteudo, file_to_write);
             printf ("Escrito!\n");
             flose (file_to_write);
             contador_arquivo+=1;

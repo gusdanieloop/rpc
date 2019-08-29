@@ -50,14 +50,16 @@ struct arquivos *func2_1_svc(void *a, struct svc_req *req) {
     while((ent = readdir(directory)) != NULL){
         printf("arquivo...");
         if(strstr(ent->d_name, ".serv") != NULL){
-            printf("achou!\n");
+            printf("achou!\t");
             FILE *file_to_read;
             file_to_read = fopen(ent->d_name, "r");
             conteudo = readline(file_to_read);
             fclose(file_to_read);
             strcpy(ret.arquivo[quantidade].conteudo, conteudo);
             quantidade += 1;
+            printf("procurando proximo...\n");
         }
     }
+    printf("chegou aqui?final\n");
     return (&ret);   
 }

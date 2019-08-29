@@ -56,25 +56,25 @@ int main (int argc, char *argv[]) {
     contador_arquivo+=1;
 
     // Chamadas das funções remotas
-    printf ("Chamando funcao\n");
-    printf("so pra ter ctz...\n%s\nby:%s\n", parametros.conteudo, parametros.usuario);
+    //printf ("Chamando funcao\n");
+    //printf("so pra ter ctz...\n%s\nby:%s\n", parametros.conteudo, parametros.usuario);
 	meu_numero = func1_1(&parametros, cl);
     if (meu_numero == NULL) {
             printf("nossa\n");
 	    clnt_perror(cl,argv[1]);
 	    exit(1);
 	}
-    printf("puts\n");
-    printf ("Retorno funcao (%d)\n", *meu_numero);
+    //printf("puts\n");
+    //printf ("Retorno funcao (%d)\n", *meu_numero);
 
     //procurando se tem coisa nova no servidor
     int polling = 1;
     char contador[12];
     while(polling){
         retorno = func2_1(NULL, cl);
-        printf("chegou no cliente!\n");
-        printf("%d arquivos\n", retorno->quantidade);
-        printf("%s\n", retorno->arquivo[0].conteudo );
+        //printf("chegou no cliente!\n");
+        //printf("%d arquivos\n", retorno->quantidade);
+        //printf("%s\n", retorno->arquivo[0].conteudo );
         for(int i = 0; i < retorno->quantidade; ++i){
             //printf("Cont: %d\nConteudo: %s",i, retorno->arquivo[i].conteudo);
             strcpy(nome_do_arquivo, "");
@@ -85,9 +85,9 @@ int main (int argc, char *argv[]) {
             sprintf(contador, "%d", *meu_numero);
             strcat(nome_do_arquivo, contador);
             file_to_write = fopen(nome_do_arquivo,"w");
-            printf ("Escrevendo...\n");
+            //printf ("Escrevendo...\n");
             writeline(retorno->arquivo[i].conteudo, file_to_write);
-            printf ("Escrito!\n");
+            //printf ("Escrito!\n");
             fclose (file_to_write);
             contador_arquivo+=1;
         }

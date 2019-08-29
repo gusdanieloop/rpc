@@ -1,6 +1,7 @@
 #include <rpc/rpc.h>
 #include <dirent.h>
 #include "tools.c"
+#include <string.h>
 
 // Interface gerada pelo RPCGen a partir da IDL (hw.x) especificada
 #include "hw.h"
@@ -42,7 +43,7 @@ struct arquivos *func2_1_svc(void *a, struct svc_req *req) {
         return NULL;
     struct dirent *ent;
     while((ent = readdir(directory)) != NULL){
-        if(ent->d_name.extension == "serv"){
+        if(strstr(ent->d_name, ".serv") != NULL){
             FILE *file_to_read;
             file_to_read = fopen(ent->d_name, "r");
             conteudo = readline(file_to_read);

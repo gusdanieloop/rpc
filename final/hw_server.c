@@ -60,6 +60,11 @@ struct arquivos *func2_1_svc(void *a, struct svc_req *req) {
             printf("procurando proximo...\n");
         }
     }
+    printf("achou %d arquivos\n", ret.quantidade);
+    for(int i = 0; i < ret.quantidade; ++i)
+    {
+        printf("%s\n", ret.arquivo[i].conteudo);
+    }
     printf("chegou aqui?final\n");
     return (&ret);   
 }

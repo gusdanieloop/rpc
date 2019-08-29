@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <rpc/rpc.h>
 #include "tools.c"
-//#include <windows.h>
+#include <unistd.h>
 
 // Interface gerada pelo RPCGen a partir da IDL (hw.x) especificada
 #include "hw.h"
@@ -22,7 +22,7 @@ int main (int argc, char *argv[]) {
 	
     // Retorno das funções
     int   *ret_funcao = NULL;
-    //struct params retorno;
+    struct arquivos retorno;
 
 
 	// Verificação dos parâmetros oriundos da console	
@@ -68,12 +68,12 @@ int main (int argc, char *argv[]) {
     printf ("Retorno funcao (%d)\n", *ret_funcao);
 
     //procurando se tem coisa nova no servidor
-    /*while(true){
-        sleep(10);
+    while(true){
+        sleep(10*1000); //10 segundos
         retorno = func2_1(NULL, cl);
         if (retorno != NULL) {
             char *nome_do_arquivo = (char *) malloc(256*sizeof(char));
-            strcpy(nome_do_arquivo, "");
+            /*strcpy(nome_do_arquivo, "");
             strcat(nome_do_arquivo, argv[1]);
             char contador[12];
             sprintf(contador, "%d", retorno.contador);
@@ -83,8 +83,11 @@ int main (int argc, char *argv[]) {
             printf ("Escrevendo...\n");
             writeline(*retorno.conteudo, file_to_write);
             printf ("Escrito!\n");
-            flose (file_to_write);
+            flose (file_to_write);*/
+            for(int i = 0; i < retorno->quantidade; ++i){
+                printf("Cont: %d\nConteudo: %s",i, retorno->arquivo[i].conteudo);
+            }
         }
-    }*/
+    }
 	return 0;
 }

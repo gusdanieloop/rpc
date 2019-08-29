@@ -1,8 +1,11 @@
 #include <rpc/rpc.h>
+#include <dirent.h>
 #include "tools.c"
 
 // Interface gerada pelo RPCGen a partir da IDL (hw.x) especificada
 #include "hw.h"
+
+static int quantidade = 0;
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 int *func1_1_svc(struct params *parametros, struct svc_req *req) {
@@ -27,7 +30,26 @@ int *func1_1_svc(struct params *parametros, struct svc_req *req) {
 }
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-/*params *func2_1_svc(void *a, struct svc_req *req) {
-    struct params ret;
-    
-}*/
+arquivos *func2_1_svc(void *a, struct svc_req *req) {
+    char *conteudo = NULL;
+    quantidade = 0;
+    struct arquivos ret;
+    ret.quantidade = quantidade;
+    char *current_directory = ".";
+    DIR *directory = NULL;
+    directory = opendir(current_directory);
+    if(directory == NULL)
+        return -1;
+    struct dirent *ent;
+    while((ent = readdir(directory)) != NULL){
+        if(ent->d_name.extension == "serv"){
+            FILE *file_to_read;
+            file_to_read = fopen(ent->d_name, "r");
+            conteudo.readline(file_to_read);
+            fclose(file_to_read);
+            strcpy(ret.arquivo[quantidade].conteudo, conteudo);
+            quantidade += 1;
+        }
+    }
+    return (&ret);   
+}

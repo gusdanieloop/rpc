@@ -55,6 +55,7 @@ int main (int argc, char *argv[]) {
     contador+=1;
 
     // Chamadas das funções remotas
+    printf("%s")
     printf ("Chamando funcao\n");
     printf("so pra ter ctz...\n%s\nby:%s", parametros.conteudo, parametros.usuario);
 	ret_funcao = func1_1(&parametros, cl);

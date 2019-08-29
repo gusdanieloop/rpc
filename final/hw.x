@@ -12,6 +12,6 @@ struct arquivos{
 program PROG {
 	version VERS {
 		int    func1(params) = 1;
-        arquivos func2(void) = 2;
+        struct arquivos func2(void) = 2;
 	} = 1;
 } = 0x31279999;

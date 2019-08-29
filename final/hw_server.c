@@ -30,7 +30,7 @@ int *func1_1_svc(struct params *parametros, struct svc_req *req) {
 }
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-arquivos *func2_1_svc(void *a, struct svc_req *req) {
+struct arquivos *func2_1_svc(void *a, struct svc_req *req) {
     char *conteudo = NULL;
     quantidade = 0;
     struct arquivos ret;
@@ -39,13 +39,13 @@ arquivos *func2_1_svc(void *a, struct svc_req *req) {
     DIR *directory = NULL;
     directory = opendir(current_directory);
     if(directory == NULL)
-        return -1;
+        return NULL;
     struct dirent *ent;
     while((ent = readdir(directory)) != NULL){
         if(ent->d_name.extension == "serv"){
             FILE *file_to_read;
             file_to_read = fopen(ent->d_name, "r");
-            conteudo.readline(file_to_read);
+            conteudo = readline(file_to_read);
             fclose(file_to_read);
             strcpy(ret.arquivo[quantidade].conteudo, conteudo);
             quantidade += 1;

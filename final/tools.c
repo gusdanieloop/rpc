@@ -32,7 +32,7 @@ char *readline (FILE *file){
       return (getLine);
     }
     getLine[linha++] = c;
-    //printf ("%d[%d](%c)\n",cont, linha, c);
+   // printf ("%d[%d](%c)\n",cont, linha, c);
   }
   return NULL;
 }

@@ -88,7 +88,7 @@ int main (int argc, char *argv[]) {
             printf ("Escrevendo...\n");
             writeline(retorno->arquivo[i].conteudo, file_to_write);
             printf ("Escrito!\n");
-            flose (file_to_write);
+            fclose (file_to_write);
             contador_arquivo+=1;
         }
         printf("deseja buscar no servidor novamente? 1- SIM 0- NÃO\n");

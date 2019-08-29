@@ -32,18 +32,25 @@ int *func1_1_svc(struct params *parametros, struct svc_req *req) {
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 struct arquivos *func2_1_svc(void *a, struct svc_req *req) {
+    printf("chega aqui?\n");
     char *conteudo = NULL;
     quantidade = 0;
     struct arquivos ret;
     ret.quantidade = quantidade;
+    printf("chega aqui2?\n");
     char *current_directory = ".";
     DIR *directory = NULL;
     directory = opendir(current_directory);
+    printf("chega aqui3?\n");
     if(directory == NULL)
         return NULL;
+    printf("chega aqui4?\n");
     struct dirent *ent;
+    printf("chega aqui5?\n");
     while((ent = readdir(directory)) != NULL){
+        printf("arquivo...");
         if(strstr(ent->d_name, ".serv") != NULL){
+            printf("achou!\n");
             FILE *file_to_read;
             file_to_read = fopen(ent->d_name, "r");
             conteudo = readline(file_to_read);

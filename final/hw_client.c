@@ -22,7 +22,7 @@ int main (int argc, char *argv[]) {
 	
     // Retorno das funções
     int   *ret_funcao = NULL;
-    struct arquivos *retorno;
+    struct arquivos *retorno = NULL;
 
 
 	// Verificação dos parâmetros oriundos da console	
@@ -70,6 +70,7 @@ int main (int argc, char *argv[]) {
     int polling = 1;
     while(polling){
         retorno = func2_1(NULL, cl);
+        printf("chegou no cliente!\n");
             //char *nome_do_arquivo = (char *) malloc(256*sizeof(char));
             /*strcpy(nome_do_arquivo, "");
             strcat(nome_do_arquivo, argv[1]);

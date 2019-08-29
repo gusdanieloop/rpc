@@ -10,5 +10,7 @@ sdi-2> ./client sdi-1 nome_do_arquivo**
 %%%%% MAIS DICAS E EXEMPLOS %%%%%
 https://docs.oracle.com/cd/E19683-01/816-1435/rpcgenpguide-21470/index.html
 
-Só fiz pra enviar pro servidor, a parte de ficar verificando de tempo em tempo não deu tempo.
-Mas aparentemente, ao passar a estrutura com os dados para o servidor, só chega o primeiro caracter...
+Cliente consegue mandar arquivo pro servidor.
+Servidor armazena como .serv
+Cliente consegue requisitar arquivos .serv do servidor e salvar como .clientX sendo X seu número de chegada no "chat".
+Fiz com somente uma linha no arquivo...

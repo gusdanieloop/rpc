@@ -16,7 +16,8 @@ int main (int argc, char *argv[]) {
 
 	// Parâmetros das funçcões
     struct params parametros;
-    parametros.conteudo = (char *) malloc(256*sizeof(char));
+    //parametros.conteudo = (char *) malloc(256*sizeof(char));
+    //parametros.usuario = (char *) malloc(256*sizeof(char));
     char *conteudo_arquivo = NULL;
 	
     // Retorno das funções
@@ -53,9 +54,11 @@ int main (int argc, char *argv[]) {
     contador+=1;
 
     // Chamadas das funções remotas
+    printf("%s")
     printf ("Chamando funcao\n");
 	ret_funcao = func1_1(&parametros, cl);
-    if (ret_funcao == NULL) {
+    if (ret_funcao != NULL) {
+
 	    clnt_perror(cl,argv[1]);
 	    exit(1);
 	}

@@ -28,7 +28,7 @@ char *readline (FILE *file){
   for (;;cont++) {
     c = fgetc( file );
     if ((linha == 256) || (c ==  EOF)){
-      //printf ("%d(%c)\n",cont, c);
+      printf ("%d(%c)\n",cont, c);
       return (getLine);
     }
     getLine[linha++] = c;

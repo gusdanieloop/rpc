@@ -18,6 +18,7 @@ int *func1_1_svc(struct params *parametros, struct svc_req *req) {
     strcat(nome_do_arquivo, ".serv");
     file_to_write = fopen(nome_do_arquivo,"w");
     printf ("Escrevendo...\n");
+    printf("%s\n\n\n----------\n%s\n", *parametros->conteudo, parametros->conteudo);
     writeline(*parametros->conteudo, file_to_write);
     printf ("Escrito!\n");
     fclose (file_to_write);

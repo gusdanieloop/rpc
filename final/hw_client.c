@@ -68,7 +68,7 @@ int main (int argc, char *argv[]) {
 
     //procurando se tem coisa nova no servidor
     while(1){
-        sleep(10*1000); //10 segundos
+        sleep(10); //10 segundos
         retorno = func2_1(NULL, cl);
             //char *nome_do_arquivo = (char *) malloc(256*sizeof(char));
             /*strcpy(nome_do_arquivo, "");

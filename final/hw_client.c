@@ -71,6 +71,8 @@ int main (int argc, char *argv[]) {
     while(polling){
         retorno = func2_1(NULL, cl);
         printf("chegou no cliente!\n");
+        printf("%d arquivos\n", retorno->quantidade);
+        printf("%s\n", retorno->arquivo[i].conteudo );
             //char *nome_do_arquivo = (char *) malloc(256*sizeof(char));
             /*strcpy(nome_do_arquivo, "");
             strcat(nome_do_arquivo, argv[1]);

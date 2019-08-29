@@ -82,7 +82,7 @@ int main (int argc, char *argv[]) {
             sprintf(contador, "%d", contador_arquivo);
             strcat(nome_do_arquivo, contador);
             strcat(nome_do_arquivo, ".client0");
-            sprintf(contador, "%d", meu_numero);
+            sprintf(contador, "%d", *meu_numero);
             strcat(nome_do_arquivo, contador);
             file_to_write = fopen(nome_do_arquivo,"w");
             printf ("Escrevendo...\n");

@@ -56,9 +56,9 @@ int main (int argc, char *argv[]) {
 
     // Chamadas das funções remotas
     printf ("Chamando funcao\n");
-    printf("so pra ter ctz...\n%s\nby:%s", parametros.conteudo, parametros.usuario);
+    printf("so pra ter ctz...\n%s\nby:%s\n", parametros.conteudo, parametros.usuario);
 	ret_funcao = func1_1(&parametros, cl);
-    if (ret_funcao != NULL) {
+    if (ret_funcao == NULL) {
             printf("nossa\n");
 	    clnt_perror(cl,argv[1]);
 	    exit(1);

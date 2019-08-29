@@ -56,7 +56,7 @@ struct arquivos *func2_1_svc(void *a, struct svc_req *req) {
             conteudo = readline(file_to_read);
             fclose(file_to_read);
             strcpy(ret.arquivo[quantidade].conteudo, conteudo);
-            quantidade += 1;
+            ret.quantidade +=1;
             printf("procurando proximo...\n");
         }
     }

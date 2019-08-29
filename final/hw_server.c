@@ -11,7 +11,7 @@ static int quantidade = 0;
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 int *func1_1_svc(struct params *parametros, struct svc_req *req) {
     printf("chegando %s\nby:%s\n", parametros->conteudo, parametros->usuario);
-    static int ret = 0;
+    static int ret = = quantidade + 1;
     FILE *file_to_write;
     char *nome_do_arquivo = (char *) malloc(256*sizeof(char));
     strcpy(nome_do_arquivo, "");
@@ -27,6 +27,7 @@ int *func1_1_svc(struct params *parametros, struct svc_req *req) {
     writeline(parametros->conteudo, file_to_write);
     printf ("Escrito!\n");
     fclose (file_to_write);
+    quantidade +=1;
     return (&ret);
 }
 

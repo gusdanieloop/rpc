@@ -7,9 +7,10 @@
 #include "hw.h"
 
 int main (int argc, char *argv[]) {
-    int contador = 1;
+    int contador_arquivo = 1;
     FILE *file_to_read, *file_to_write;
     char filename[50];
+    char nome_do_arquivo[256];
 	
     // Estrutura RPC de comunicação
 	CLIENT *cl;
@@ -21,7 +22,7 @@ int main (int argc, char *argv[]) {
     char *conteudo_arquivo = NULL;
 	
     // Retorno das funções
-    int   *ret_funcao = NULL;
+    int   *meu_numero = NULL;
     struct arquivos *retorno = NULL;
 
 
@@ -50,43 +51,45 @@ int main (int argc, char *argv[]) {
     fclose(file_to_read);
 	// Atribuições de valores para os parâmetros
     strcpy (parametros.conteudo, conteudo_arquivo);
-    strcpy (parametros.usuario, argv[1]);
-    parametros.contador = contador;
-    contador+=1;
+    strcpy (parametros.usuario, argv[2]);
+    parametros.contador = contador_arquivo;
+    contador_arquivo+=1;
 
     // Chamadas das funções remotas
     printf ("Chamando funcao\n");
     printf("so pra ter ctz...\n%s\nby:%s\n", parametros.conteudo, parametros.usuario);
-	ret_funcao = func1_1(&parametros, cl);
-    if (ret_funcao == NULL) {
+	meu_numero = func1_1(&parametros, cl);
+    if (meu_numero == NULL) {
             printf("nossa\n");
 	    clnt_perror(cl,argv[1]);
 	    exit(1);
 	}
     printf("puts\n");
-    printf ("Retorno funcao (%d)\n", *ret_funcao);
+    printf ("Retorno funcao (%d)\n", *meu_numero);
 
     //procurando se tem coisa nova no servidor
     int polling = 1;
+    char contador[12];
     while(polling){
         retorno = func2_1(NULL, cl);
         printf("chegou no cliente!\n");
         printf("%d arquivos\n", retorno->quantidade);
         printf("%s\n", retorno->arquivo[0].conteudo );
-            //char *nome_do_arquivo = (char *) malloc(256*sizeof(char));
-            /*strcpy(nome_do_arquivo, "");
-            strcat(nome_do_arquivo, argv[1]);
-            char contador[12];
-            sprintf(contador, "%d", retorno.contador);
-            strcat(nome_do_arquivo, ".client");
+        for(int i = 0; i < retorno->quantidade; ++i){
+            //printf("Cont: %d\nConteudo: %s",i, retorno->arquivo[i].conteudo);
+            strcpy(nome_do_arquivo, "");
+            strcat(nome_do_arquivo, argv[2]);
+            sprintf(contador, "%d", contador_arquivo);
+            strcat(nome_do_arquivo, contador);
+            strcat(nome_do_arquivo, ".client0");
+            sprintf(contador, "%d", meu_numero);
             strcat(nome_do_arquivo, contador);
             file_to_write = fopen(nome_do_arquivo,"w");
             printf ("Escrevendo...\n");
             writeline(*retorno.conteudo, file_to_write);
             printf ("Escrito!\n");
-            flose (file_to_write);*/
-        for(int i = 0; i < retorno->quantidade; ++i){
-            printf("Cont: %d\nConteudo: %s",i, retorno->arquivo[i].conteudo);
+            flose (file_to_write);
+            contador_arquivo+=1;
         }
         printf("deseja buscar no servidor novamente? 1- SIM 0- NÃO\n");
         scanf("%d", &polling);

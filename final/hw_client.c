@@ -69,7 +69,7 @@ int main (int argc, char *argv[]) {
     //procurando se tem coisa nova no servidor
     while(1){
         sleep(10*1000); //10 segundos
-        *retorno = func2_1(NULL, cl);
+        retorno = func2_1(NULL, cl);
             //char *nome_do_arquivo = (char *) malloc(256*sizeof(char));
             /*strcpy(nome_do_arquivo, "");
             strcat(nome_do_arquivo, argv[1]);
@@ -83,7 +83,7 @@ int main (int argc, char *argv[]) {
             printf ("Escrito!\n");
             flose (file_to_write);*/
             for(int i = 0; i < retorno->quantidade; ++i){
-                printf("Cont: %d\nConteudo: %s",i, retorno->arquivo[i].conteudo);
+                printf("Cont: %d\nConteudo: %s",i, retorno.arquivo[i].conteudo);
             }
     }
 	return 0;

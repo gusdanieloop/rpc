@@ -67,8 +67,8 @@ int main (int argc, char *argv[]) {
     printf ("Retorno funcao (%d)\n", *ret_funcao);
 
     //procurando se tem coisa nova no servidor
-    while(1){
-        sleep(10); //10 segundos
+    int polling = 1
+    while(polling){
         retorno = func2_1(NULL, cl);
             //char *nome_do_arquivo = (char *) malloc(256*sizeof(char));
             /*strcpy(nome_do_arquivo, "");
@@ -82,9 +82,11 @@ int main (int argc, char *argv[]) {
             writeline(*retorno.conteudo, file_to_write);
             printf ("Escrito!\n");
             flose (file_to_write);*/
-            for(int i = 0; i < retorno->quantidade; ++i){
-                printf("Cont: %d\nConteudo: %s",i, retorno->arquivo[i].conteudo);
-            }
+        for(int i = 0; i < retorno->quantidade; ++i){
+            printf("Cont: %d\nConteudo: %s",i, retorno->arquivo[i].conteudo);
+        }
+        printf("deseja buscar no servidor novamente? 1- SIM 0- NÃO\n");
+        scanf("%d", &polling);
     }
 	return 0;
 }

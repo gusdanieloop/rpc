@@ -22,7 +22,7 @@ int main (int argc, char *argv[]) {
 	
     // Retorno das funções
     int   *ret_funcao = NULL;
-    struct arquivos retorno;
+    struct arquivos *retorno;
 
 
 	// Verificação dos parâmetros oriundos da console	
@@ -82,7 +82,7 @@ int main (int argc, char *argv[]) {
             writeline(*retorno.conteudo, file_to_write);
             printf ("Escrito!\n");
             flose (file_to_write);*/
-            for(int i = 0; i < retorno->quantidade; ++i){
+            for(int i = 0; i < retorno.quantidade; ++i){
                 printf("Cont: %d\nConteudo: %s",i, retorno.arquivo[i].conteudo);
             }
     }

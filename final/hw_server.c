@@ -35,7 +35,7 @@ struct arquivos *func2_1_svc(void *a, struct svc_req *req) {
     printf("chega aqui?\n");
     char *conteudo = NULL;
     quantidade = 0;
-    struct arquivos ret;
+    static struct arquivos ret;
     ret.quantidade = quantidade;
     printf("chega aqui2?\n");
     char *current_directory = ".";
@@ -66,5 +66,5 @@ struct arquivos *func2_1_svc(void *a, struct svc_req *req) {
         printf("%s\n", ret.arquivo[i].conteudo);
     }
     printf("chegou aqui?final\n");
-    return (&ret);   
+    return &ret;   
 }

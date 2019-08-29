@@ -67,7 +67,7 @@ int main (int argc, char *argv[]) {
     printf ("Retorno funcao (%d)\n", *ret_funcao);
 
     //procurando se tem coisa nova no servidor
-    int polling = 1
+    int polling = 1;
     while(polling){
         retorno = func2_1(NULL, cl);
             //char *nome_do_arquivo = (char *) malloc(256*sizeof(char));
